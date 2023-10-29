@@ -7,8 +7,9 @@ router.get("/", async (req, res) => {
   res.send(movies);
 });
 
-router.get("/:id", async (req, res) => {
-  const id = req.params.id;
+router.get("/:my_id", async (req, res) => {
+  const id = req.params.my_id;
+
   const movie = await Movie.findById(id);
   res.send(movie);
 });
