@@ -7,11 +7,11 @@ router.get("/", async (req, res) => {
   res.send(movies);
 });
 
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   const movie = movies.find((movie) => movie.id === parseInt(id, 10));
-//   res.send(movie);
-// });
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const movie = await Movie.findById(id);
+  res.send(movie);
+});
 
 router.post("/", async (req, res) => {
   const movie = req.body;
