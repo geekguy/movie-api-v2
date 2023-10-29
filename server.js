@@ -1,5 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
+
+const PORT = process.env.PORT;
+
+console.log({ PORT });
 
 const movies = [
   {
@@ -25,7 +30,7 @@ const movies = [
 app.use(express.json());
 
 app.listen(8080, () => {
-  console.log(`Server is up and running on port 8080`);
+  console.log(`Server is up and running on port ${PORT}`);
 });
 
 app.get("/", (req, res) => {
